@@ -1,0 +1,42 @@
+<!-- Start sidebarhtmls -->
+<h3>{{property.name}}</h3><!-- end #location -->
+<br />
+<div id="whichnet">
+    You are currently connected to the {{device.network}} network.
+    
+    {{#device.free}}
+    <a href="{{userman.protocal}}://{{userman.ip}}/user/signup">Get information on premium access.</a>
+    {{/device.free}}
+</div>
+
+
+
+<div class="signin">
+    <br />
+    
+    <!-- Sign in Information -->
+    <form name="login" action="$(link-login-only)" method="post"
+        $(if chap-id) onSubmit="return doLogin()" $(endif)>
+        <!--<input type="hidden" name="dst" value="$(link-orig)" />-->
+        <input type="hidden" name="dst" value="{{device.redirect_url}}" />
+        <input type="hidden" name="popup" value="true" />
+        
+        <!-- <label id="commentedun" for="username">Username (get from front desk)</label>-->
+        <input class="text" id="username" name="username" type="{{#device.showlogin}}text{{/device.showlogin}}{{^device.showlogin}}hidden{{/device.showlogin}}" placeholder="username (see front desk)"/>
+
+        <br />
+        <!--<label id="commentedpw" for="password">Password</label> -->
+        <input id="password" name="password" type="{{#device.showlogin}}password{{/device.showlogin}}{{^device.showlogin}}hidden{{/device.showlogin}}" placeholder="password (see front desk)" value=""/><br />
+        <input id="inputsubmit" type="submit" value="I Agree" />        
+        
+        <!-- Bookmark to TOC -->
+        <a id="bookmarks" href="#ua">Terms and Conditions</a>
+        <!-- End of Bookmarks -->
+   
+    </form>
+     <!-- End Sign in information -->
+
+    
+    
+</div><!-- end #signin -->
+<!-- END sidebar.html -->
